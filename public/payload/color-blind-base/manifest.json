@@ -1,0 +1,30 @@
+{
+  "name": "old-color-blind-base-styles",
+  "source": "https://github.com/Hantu-Raya/Deadlock-mods-collection/tree/main/old_color_blind/panorama/styles/base",
+  "sourceRepository": "Hantu-Raya/Deadlock-mods-collection",
+  "sourceRef": "main",
+  "sourceCommit": "847525c57abae4607cd8474d51f586a771d30705",
+  "sourcePath": "old_color_blind/panorama/styles/base",
+  "compiler": "Browser Panorama style resource writer",
+  "files": [
+    "panorama/styles/base/ability_hud_elements/element_roll.css",
+    "panorama/styles/base/ability_hud_elements/element_sprint.css",
+    "panorama/styles/base/citadel_hud_data_feed_info.css",
+    "panorama/styles/base/citadel_hud_hero_shop.css",
+    "panorama/styles/base/citadel_hud_shop_quickbuy.css",
+    "panorama/styles/base/citadel_hud_top_bar.css",
+    "panorama/styles/base/citadel_shop_mod_icon.css",
+    "panorama/styles/base/citadel_shop_mod_view.css",
+    "panorama/styles/base/hud_abilities.css",
+    "panorama/styles/base/hud_ability_icon.css",
+    "panorama/styles/base/hud_ability_icon_active.css",
+    "panorama/styles/base/hud_ability_icon_passive.css",
+    "panorama/styles/base/hud_damage_impact.css",
+    "panorama/styles/base/hud_gold_and_ap_container.css",
+    "panorama/styles/base/hud_minimap.css",
+    "panorama/styles/base/hud_objective_health.css",
+    "panorama/styles/base/hud_quickbuy.css",
+    "panorama/styles/base/hud_quickbuy_entry.css",
+    "panorama/styles/base/unit_status.css"
+  ]
+}

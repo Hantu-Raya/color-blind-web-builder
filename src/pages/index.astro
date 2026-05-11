@@ -1,0 +1,28 @@
+---
+import ColorBlindBuilderIsland from "../components/ColorBlindBuilderIsland.jsx";
+import "../styles/global.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Deadlock Color Blind Builder</title>
+    <meta
+      name="description"
+      content="Build custom color blind CSS wash overrides for the Deadlock old_color_blind mod."
+    />
+    <meta property="og:title" content="Deadlock Color Blind Builder" />
+    <meta
+      property="og:description"
+      content="Tune health, lane, ability, shop, and minimap colors, then download pak86_dir.vpk locally."
+    />
+    <link rel="icon" href="data:," />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <main id="main-content">
+      <ColorBlindBuilderIsland client:load />
+    </main>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.astro/
+.agents/
+.dev-server.*.log
+verification-*.png
+a11y-review-*.png
+.env*
+.tools/
