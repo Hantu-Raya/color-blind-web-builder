@@ -61,4 +61,10 @@ npm run check
 
 ## License
 
-MIT. See `LICENSE` and `NOTICE.md`.
+This project is licensed under the Apache License, Version 2.0. See `LICENSE`.
+
+Attribution notices for this project are included in `NOTICE`. If you distribute this software or derivative works, preserve the applicable copyright, license, and notice files as required by Apache-2.0.
+
+### Attribution
+
+When distributing this project or derivative works, please preserve the included `LICENSE` and `NOTICE` files. This project was created by Hantu-Raya.
