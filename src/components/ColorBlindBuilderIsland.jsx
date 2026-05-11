@@ -263,7 +263,6 @@ export default function ColorBlindBuilderIsland() {
           </summary>
           <p>
             The browser downloads <strong>pak86_dir.vpk</strong>. Put it in your Deadlock colorblind mod folder when you are ready.
-            Keep your old VPK so you can undo the change.
           </p>
         </details>
       </section>
