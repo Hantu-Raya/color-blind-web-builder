@@ -1,0 +1,18 @@
+# Third-party notices
+
+This repository contains original code by **Hantu-Raya** and bundled files used by the Deadlock Color Blind Builder.
+
+## Bundled payload
+
+- **Base style payload files** in `public/payload/color-blind-base/` are synced from `Hantu-Raya/Deadlock-mods-collection` `main/old_color_blind/panorama/styles/base` so the browser tool can build a complete local VPK.
+- **Generated override styles** are produced in the browser from user-selected color roles and strength values. The app does not upload selected files, generated CSS, presets, or VPKs to a server.
+- **Deadlock and Source 2 names, paths, and file formats** belong to their respective owners. This is an unofficial fan-made tool and is not affiliated with Valve.
+
+## Runtime and libraries
+
+- **Astro, React, Playwright, Phosphor Icons, and npm dependencies** - see each package's license in `package-lock.json` and upstream repositories.
+- **Browser VPK generation** runs locally in the user's browser from bundled payload data and generated CSS resources.
+
+## Generated artifacts
+
+The repository should not commit Astro build output. Regenerate it with `npm run build` when needed. Refresh the bundled base style payload with `npm run payload:sync` when upstream `old_color_blind` source changes.
