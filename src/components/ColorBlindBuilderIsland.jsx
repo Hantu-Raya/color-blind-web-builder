@@ -464,7 +464,7 @@ export default function ColorBlindBuilderIsland() {
       </div>
 
       <footer className="builder-footer">
-        <p>Local browser build. Apache-2.0 licensed. Unofficial fan tool, not affiliated with Valve.</p>
+        <p>Local browser build. Apache License 2.0. Unofficial fan tool, not affiliated with Valve.</p>
         <nav aria-label="Project links">
           <a href="https://github.com/Hantu-Raya" target="_blank" rel="noreferrer">
             <GithubLogo weight={ICON_WEIGHT} />
@@ -476,7 +476,7 @@ export default function ColorBlindBuilderIsland() {
           </a>
           <a href="https://github.com/Hantu-Raya/color-blind-web-builder/blob/main/LICENSE" target="_blank" rel="noreferrer">
             <FileCode weight={ICON_WEIGHT} />
-            <span>Apache-2.0</span>
+            <span>Apache 2.0 License</span>
           </a>
           <a href="https://github.com/Hantu-Raya/color-blind-web-builder/blob/main/NOTICE" target="_blank" rel="noreferrer">
             <FileCode weight={ICON_WEIGHT} />
