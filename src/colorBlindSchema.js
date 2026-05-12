@@ -4,6 +4,7 @@ const text = (file, selector, alpha = 100) => ({ file, selector, prop: "color", 
 const opacity = (file, selector, value) => ({ file, selector, prop: "opacity", fixedValue: value });
 const saturation = (file, selector, value) => ({ file, selector, prop: "saturation", fixedValue: value });
 const brightness = (file, selector, value) => ({ file, selector, prop: "brightness", fixedValue: value });
+const fixed = (file, selector, prop, value) => ({ file, selector, prop, fixedValue: value });
 const gradient = (file, selector, alpha = 100) => ({ file, selector, prop: "background-color", alpha, format: "gradient" });
 const topBarBadgeBackground = (...teams) => teams
   .map((team) => `${team} CitadelHeroBadge.TopBar .BadgeBackground`)
@@ -16,6 +17,14 @@ const topBarCoinBackground = (...teams) => teams
     `${team} CitadelHudTopBarPlayer.IsInLocalPlayerLane .HeroContentsCoinBackground`
   ])
   .join(",");
+
+const SHOP_READABLE_ITEM_TEXT_SELECTOR = [
+  "#CitadelHudHeroShop CitadelShopMod .modName",
+  "#CitadelHudHeroShop CitadelShopMod .ItemName",
+  "#CitadelHudHeroShop CitadelShopMod .boldedText"
+].join(",");
+
+const SHOP_READABLE_TIER_SELECTOR = "#CitadelHudHeroShop CitadelShopMod #mod_tier_label";
 
 export const STYLE_FILES = [
   "ability_hud_elements/element_roll.css",
@@ -397,7 +406,10 @@ export const EFFECT_TARGETS = [
   opacity("citadel_shop_mod_view.css", ".recommended .recommended_icon", 1),
   opacity("hud_quickbuy_entry.css", ".QuickbuyItem.CanAffordCumulative", 1),
   opacity("hud_quickbuy_entry.css", ".QuickbuyItem.CanAffordCumulative.exceedsItemSlot", 0.45),
-  opacity("hud_objective_health.css", ".on_damaged #healthbar_progress .ProgressBarMiddle", 1)
+  opacity("hud_objective_health.css", ".on_damaged #healthbar_progress .ProgressBarMiddle", 1),
+  fixed("citadel_shop_mod_view.css", SHOP_READABLE_ITEM_TEXT_SELECTOR, "color", "#F8FAFC"),
+  fixed("citadel_shop_mod_view.css", SHOP_READABLE_ITEM_TEXT_SELECTOR, "text-shadow", "0px 0px 5.0 #000000"),
+  fixed("citadel_shop_mod_view.css", SHOP_READABLE_TIER_SELECTOR, "wash-color", "#F8FAFC")
 ];
 
 export const PRESETS = [

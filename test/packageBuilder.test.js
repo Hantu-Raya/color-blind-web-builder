@@ -63,6 +63,17 @@ test("custom colors flow into generated CSS", () => {
   assert.match(css, /wash-color: #ABCDEF66;/);
 });
 
+test("shop item labels keep readable contrast after color wash", () => {
+  const css = buildCssByFile(createDefaultBuilderState())["citadel_shop_mod_view.css"];
+
+  assert.match(css, /#CitadelHudHeroShop CitadelShopMod \.modName/);
+  assert.match(css, /#CitadelHudHeroShop CitadelShopMod \.ItemName/);
+  assert.match(css, /color: #F8FAFC;/);
+  assert.match(css, /text-shadow: 0px 0px 5\.0 #000000;/);
+  assert.match(css, /#CitadelHudHeroShop CitadelShopMod #mod_tier_label/);
+  assert.match(css, /wash-color: #F8FAFC;/);
+});
+
 test("builds compiled resources and VPK bytes", () => {
   const state = createDefaultBuilderState();
   const result = buildColorBlindPackage(state);
