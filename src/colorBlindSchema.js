@@ -50,7 +50,7 @@ export const STYLE_FILES = [
 
 export const ROLE_CATEGORIES = [
   { id: "combat", label: "Combat" },
-  { id: "team", label: "Team cues" },
+  { id: "team", label: "Allies" },
   { id: "abilities", label: "Abilities" },
   { id: "shop", label: "Shop" },
   { id: "map", label: "Map and lanes" },
@@ -112,8 +112,8 @@ export const COLOR_ROLES = [
   {
     id: "friend",
     category: "team",
-    label: "Friendly main",
-    description: "Friendly health, top bar, minimap friends, and positive team identity.",
+    label: "Ally health",
+    description: "Ally health bars, top bar, minimap allies, and friendly team identity.",
     defaultColor: "#0072B2",
     defaultWash: 100,
     targets: [
@@ -139,8 +139,8 @@ export const COLOR_ROLES = [
   {
     id: "friendAccent",
     category: "team",
-    label: "Friendly accent",
-    description: "Friendly damage delta, quickbuy readiness, and blue lane contrast.",
+    label: "Ally damage and ready",
+    description: "Ally damage delta, quickbuy readiness, and blue lane contrast.",
     defaultColor: "#56B4E9",
     defaultWash: 100,
     targets: [
@@ -154,6 +154,20 @@ export const COLOR_ROLES = [
       bg("hud_quickbuy.css", ".ItemsReady #HudMini", 45),
       bg("hud_quickbuy.css", ".CanBuyItemsHighlight", 40),
       text("hud_quickbuy.css", "#QuickbuyShopSummary .ItemsReadyLabel")
+    ]
+  },
+  {
+    id: "neutralHealth",
+    category: "combat",
+    label: "Neutral camp health",
+    description: "Neutral camp health bars, damage delta, and neutral progress indicators.",
+    defaultColor: "#5BEFB5",
+    defaultWash: 100,
+    targets: [
+      wash("unit_status.css", ".team_neutral #unit_healthbar_lagging"),
+      wash("unit_status.css", ".team_neutral #unit_healthbar_delta"),
+      wash("unit_status.css", ".team_neutral #state_progressbar"),
+      wash("unit_status.css", ".team_neutral #unit_ult_ready_icon")
     ]
   },
   {
@@ -278,13 +292,16 @@ export const COLOR_ROLES = [
     id: "laneGreen",
     category: "map",
     label: "Green lane",
-    description: "Lane 3 swaps and green lane minimap marks.",
+    description: "Lane 3 and Lane 6 swaps, plus green lane minimap marks.",
     defaultColor: "#009E73",
     defaultWash: 100,
     targets: [
       wash("citadel_hud_top_bar.css", "CitadelHudTopBarPlayer.LaneSwapDefault.LaneNum3 #LaneSwapContainer,CitadelHudTopBarPlayer.LaneSwapRequesting.LaneNum3 #LaneSwapContainer,CitadelHudTopBarPlayer.LaneSwapReceiving.LaneNum3 #LaneSwapContainer"),
+      wash("citadel_hud_top_bar.css", "CitadelHudTopBarPlayer.LaneSwapDefault.LaneNum6 #LaneSwapContainer,CitadelHudTopBarPlayer.LaneSwapRequesting.LaneNum6 #LaneSwapContainer,CitadelHudTopBarPlayer.LaneSwapReceiving.LaneNum6 #LaneSwapContainer"),
       wash("hud_minimap.css", ".ziplineGreenLane"),
+      wash("hud_minimap.css", ".ziplinePurpleLane"),
       wash("hud_minimap.css", ".map_button.friend.boss.greenLane .boss_image"),
+      wash("hud_minimap.css", ".map_button.friend.boss.purpleLane .boss_image"),
       gradient("hud_quickbuy_entry.css", ".QuickbuyItem.IsBeingDragged.isArmor")
     ]
   },
@@ -299,19 +316,6 @@ export const COLOR_ROLES = [
       wash("citadel_hud_top_bar.css", "CitadelHudTopBarPlayer.LaneSwapDefault.LaneNum4 #LaneSwapContainer,CitadelHudTopBarPlayer.LaneSwapRequesting.LaneNum4 #LaneSwapContainer,CitadelHudTopBarPlayer.LaneSwapReceiving.LaneNum4 #LaneSwapContainer"),
       wash("hud_minimap.css", ".ziplineBlueLane"),
       wash("hud_minimap.css", ".map_button.friend.boss.blueLane .boss_image")
-    ]
-  },
-  {
-    id: "lanePurple",
-    category: "map",
-    label: "Purple lane",
-    description: "Lane 6 swaps, purple lane minimap marks, and recommended overlays.",
-    defaultColor: "#CC79A7",
-    defaultWash: 100,
-    targets: [
-      wash("citadel_hud_top_bar.css", "CitadelHudTopBarPlayer.LaneSwapDefault.LaneNum6 #LaneSwapContainer,CitadelHudTopBarPlayer.LaneSwapRequesting.LaneNum6 #LaneSwapContainer,CitadelHudTopBarPlayer.LaneSwapReceiving.LaneNum6 #LaneSwapContainer"),
-      wash("hud_minimap.css", ".ziplinePurpleLane"),
-      wash("hud_minimap.css", ".map_button.friend.boss.purpleLane .boss_image")
     ]
   },
   {
@@ -377,8 +381,8 @@ export const COLOR_ROLES = [
   {
     id: "friendBorder",
     category: "team",
-    label: "Friendly border",
-    description: "Light borders and top bar ability fallback.",
+    label: "Ally border",
+    description: "Ally health border and top bar ability fallback.",
     defaultColor: "#DDE7EE",
     defaultWash: 100,
     targets: [
@@ -450,11 +454,11 @@ export const PRESETS = [
       enemyDelta: "#FF8C42",
       friend: "#2BB8D8",
       friendAccent: "#86E2F1",
+      neutralHealth: "#64E8B8",
       positive: "#38B67E",
       upgrade: "#D77AD8",
       economy: "#E6A33A",
       tech: "#2BB8D8",
-      lanePurple: "#C985D9",
       border: "#111B26"
     }
   },

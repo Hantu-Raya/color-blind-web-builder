@@ -126,3 +126,26 @@ test("role schema maps a broad set of targets", () => {
   assert.match(combined, /citadel_shop_mod_view\.css/);
   assert.match(combined, /ability_hud_elements\/element_sprint\.css/);
 });
+
+test("green lane owns the lane 6 game-code targets", () => {
+  const roleIds = new Set(COLOR_ROLES.map((role) => role.id));
+  const greenLane = COLOR_ROLES.find((role) => role.id === "laneGreen");
+  const selectors = greenLane.targets.map((target) => target.selector).join(",");
+
+  assert.equal(roleIds.has("lanePurple"), false);
+  assert.match(selectors, /LaneNum3/);
+  assert.match(selectors, /LaneNum6/);
+  assert.match(selectors, /ziplineGreenLane/);
+  assert.match(selectors, /ziplinePurpleLane/);
+});
+
+test("neutral camp health bars are color configurable", () => {
+  const neutralHealth = COLOR_ROLES.find((role) => role.id === "neutralHealth");
+  const selectors = neutralHealth.targets.map((target) => target.selector).join(",");
+  const css = buildCssByFile(createDefaultBuilderState())["unit_status.css"];
+
+  assert.match(selectors, /\.team_neutral #unit_healthbar_lagging/);
+  assert.match(selectors, /\.team_neutral #unit_healthbar_delta/);
+  assert.match(selectors, /\.team_neutral #state_progressbar/);
+  assert.match(css, /\.team_neutral #unit_healthbar_lagging/);
+});

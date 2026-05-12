@@ -360,8 +360,9 @@ export default function ColorBlindBuilderIsland() {
             <div className="sample-hud">
               <SampleBar label="Enemy" color={previewColor("enemy")} borderColor={previewColor("border")} />
               <SampleBar label="Friend" color={previewColor("friend")} borderColor={previewColor("friendBorder")} />
+              <SampleBar label="Neutral" color={previewColor("neutralHealth")} borderColor={previewColor("border")} />
               <div className="sample-lanes">
-                {["laneYellow", "laneGreen", "laneBlue", "lanePurple"].map((roleId) => (
+                {["laneYellow", "laneGreen", "laneBlue"].map((roleId) => (
                   <span key={roleId} style={{ backgroundColor: previewColor(roleId) }} />
                 ))}
               </div>
@@ -509,11 +510,13 @@ function RangeField({ label, title, value, min, max, onChange, showHelp = false 
 }
 
 function SampleBar({ label, color, borderColor }) {
+  const width = label === "Enemy" ? "68%" : label === "Neutral" ? "74%" : "82%";
+
   return (
     <div className="sample-bar" style={{ borderColor }}>
       <span>{label}</span>
       <div className="sample-track">
-        <span style={{ backgroundColor: color, width: label === "Enemy" ? "68%" : "82%" }} />
+        <span style={{ backgroundColor: color, width }} />
       </div>
     </div>
   );
