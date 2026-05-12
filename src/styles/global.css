@@ -741,9 +741,17 @@ h2 {
   min-width: 0;
 }
 
+.sample-section-label {
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
 .sample-bar {
   display: grid;
-  grid-template-columns: 66px 1fr;
+  grid-template-columns: 92px 1fr;
   gap: 10px;
   align-items: center;
   padding: 8px;
@@ -751,10 +759,24 @@ h2 {
   border-radius: 6px;
 }
 
-.sample-bar span {
+.sample-bar-label {
+  display: grid;
+  gap: 2px;
+}
+
+.sample-bar-label strong {
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 850;
+  line-height: 1.1;
+}
+
+.sample-bar-label em {
+  color: var(--subtle);
+  font-size: 0.58rem;
+  font-style: normal;
+  font-weight: 750;
+  line-height: 1.1;
 }
 
 .sample-track {
@@ -821,16 +843,16 @@ h2 {
 }
 
 .sample-icons span {
-  display: inline-grid;
-  grid-template-columns: 15px auto;
+  display: inline-flex;
   align-items: center;
-  gap: 5px;
   min-height: 25px;
-  padding: 3px 8px 3px 5px;
+  padding: 4px 9px;
   min-width: 0;
   border: 1px solid color-mix(in srgb, var(--chip-color) 55%, var(--line));
   border-radius: 999px;
-  background: color-mix(in srgb, var(--chip-color) 13%, #101820);
+  background:
+    linear-gradient(90deg, var(--chip-color) 0 5px, transparent 5px),
+    color-mix(in srgb, var(--chip-color) 13%, #101820);
   color: var(--text);
   font-family: var(--mono);
   font-size: 0.64rem;
@@ -842,22 +864,6 @@ h2 {
 
 .sample-icons span {
   text-overflow: clip;
-}
-
-.sample-icons span::before {
-  content: attr(data-mark);
-  display: grid;
-  place-items: center;
-  width: 15px;
-  height: 15px;
-  border: 1px solid rgba(16, 20, 24, 0.72);
-  border-radius: 4px;
-  background:
-    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.32) 0 2px, transparent 2px 5px),
-    var(--chip-color);
-  color: #101418;
-  font-size: 0.62rem;
-  line-height: 1;
 }
 
 .sample-help {

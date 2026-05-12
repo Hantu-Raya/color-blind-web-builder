@@ -29,11 +29,11 @@ import { loadBaseStylePayload } from "../baseStylePayload.js";
 const ICON_WEIGHT = "duotone";
 const INITIAL_STATUS = { kind: "ready", text: "Ready. Pick colors, then build a local VPK.", time: "" };
 const SAMPLE_SWATCHES = [
-  { roleId: "positive", label: "Ready", mark: "R", help: "Ready abilities, owned items, healing, and positive states." },
-  { roleId: "upgrade", label: "Upgrade", mark: "^", help: "Ability upgrades, AP, recommended items, and sell/new item cues." },
-  { roleId: "economy", label: "Gold", mark: "$", help: "Souls, gold, purchasable costs, and weapon shop cues." },
-  { roleId: "tech", label: "Tech", mark: "T", help: "Tech shop category markings and tech mod headers." },
-  { roleId: "disabled", label: "Off", mark: "X", help: "Cooldown, locked, not trained, disabled, and unavailable states." }
+  { roleId: "positive", label: "Ready", help: "Ready abilities, owned items, healing, and positive states." },
+  { roleId: "upgrade", label: "Upgrade", help: "Ability upgrades, AP, recommended items, and sell/new item cues." },
+  { roleId: "economy", label: "Gold", help: "Souls, gold, purchasable costs, and weapon shop cues." },
+  { roleId: "tech", label: "Tech", help: "Tech shop category markings and tech mod headers." },
+  { roleId: "disabled", label: "Off", help: "Cooldown, locked, not trained, disabled, and unavailable states." }
 ];
 
 function formatPercent(value) {
@@ -355,17 +355,20 @@ export default function ColorBlindBuilderIsland() {
           <div className="preview-card sample-card">
             <div className="preview-heading">
               <Palette weight={ICON_WEIGHT} />
-              <strong>HUD Sample</strong>
+              <strong>HUD color preview</strong>
             </div>
             <div className="sample-hud">
-              <SampleBar label="Enemy" color={previewColor("enemy")} borderColor={previewColor("border")} />
-              <SampleBar label="Friend" color={previewColor("friend")} borderColor={previewColor("friendBorder")} />
-              <SampleBar label="Neutral" color={previewColor("neutralHealth")} borderColor={previewColor("border")} />
+              <div className="sample-section-label">Health bars</div>
+              <SampleBar label="Enemy health" note="enemy fill" color={previewColor("enemy")} borderColor={previewColor("border")} />
+              <SampleBar label="Ally health" note="outline = ally border" color={previewColor("friend")} borderColor={previewColor("friendBorder")} />
+              <SampleBar label="Neutral camp" note="neutral health fill" color={previewColor("neutralHealth")} borderColor={previewColor("border")} />
+              <div className="sample-section-label">Lane markers</div>
               <div className="sample-lanes">
                 {["laneYellow", "laneGreen", "laneBlue"].map((roleId) => (
                   <span key={roleId} style={{ backgroundColor: previewColor(roleId) }} />
                 ))}
               </div>
+              <div className="sample-section-label">State chips</div>
               <div className="sample-icons">
                 {SAMPLE_SWATCHES.map((item) => (
                   <span
@@ -373,7 +376,6 @@ export default function ColorBlindBuilderIsland() {
                     className={`sample-chip sample-chip-${item.roleId}`}
                     style={{ "--chip-color": previewBackground(item.roleId) }}
                     title={item.help}
-                    data-mark={item.mark}
                   >
                     {item.label}
                   </span>
@@ -509,12 +511,15 @@ function RangeField({ label, title, value, min, max, onChange, showHelp = false 
   );
 }
 
-function SampleBar({ label, color, borderColor }) {
-  const width = label === "Enemy" ? "68%" : label === "Neutral" ? "74%" : "82%";
+function SampleBar({ label, note, color, borderColor }) {
+  const width = label === "Enemy health" ? "68%" : label === "Neutral camp" ? "74%" : "82%";
 
   return (
     <div className="sample-bar" style={{ borderColor }}>
-      <span>{label}</span>
+      <span className="sample-bar-label">
+        <strong>{label}</strong>
+        <em>{note}</em>
+      </span>
       <div className="sample-track">
         <span style={{ backgroundColor: color, width }} />
       </div>
