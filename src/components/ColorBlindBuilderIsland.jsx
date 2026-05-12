@@ -37,7 +37,7 @@ const SAMPLE_SWATCHES = [
 ];
 const SIMILAR_TOOLS = [
   { label: "HP Colors Preset Builder", href: "https://hantu-raya.github.io/hp-colors-preset-builder/" },
-  { label: "3D HUD VPK Merger", href: "https://hantu-raya.github.io/3d-hud-web-inject/" }
+  { label: "3D HUD VPK Merger", href: "https://hantu-raya.github.io/3d-hud-web-merger/" }
 ];
 
 function formatPercent(value) {
