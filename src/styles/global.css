@@ -192,6 +192,54 @@ h1 {
   line-height: 1.48;
 }
 
+.similar-tools {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.similar-tools span {
+  color: var(--subtle);
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.similar-tools a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 7px 12px;
+  border: 1px solid rgba(215, 180, 106, 0.42);
+  border-radius: 6px;
+  background: rgba(215, 180, 106, 0.08);
+  color: var(--text);
+  font-size: 0.74rem;
+  font-weight: 850;
+  line-height: 1;
+  text-decoration: none;
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.similar-tools a:hover {
+  border-color: rgba(215, 180, 106, 0.72);
+  background: rgba(215, 180, 106, 0.16);
+  transform: translateY(-1px);
+}
+
+.similar-tools a:active {
+  transform: translateY(0);
+}
+
+.similar-tools a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
 .hero-console,
 .top-controls,
 .role-panel,

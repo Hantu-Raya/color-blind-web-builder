@@ -35,6 +35,10 @@ const SAMPLE_SWATCHES = [
   { roleId: "tech", label: "Tech", help: "Tech shop category markings and tech mod headers." },
   { roleId: "disabled", label: "Off", help: "Cooldown, locked, not trained, disabled, and unavailable states." }
 ];
+const SIMILAR_TOOLS = [
+  { label: "HP Colors Preset Builder", href: "https://hantu-raya.github.io/hp-colors-preset-builder/" },
+  { label: "3D HUD VPK Merger", href: "https://hantu-raya.github.io/3d-hud-web-inject/" }
+];
 
 function formatPercent(value) {
   return `${Math.round(Number(value) || 0)}%`;
@@ -189,6 +193,14 @@ export default function ColorBlindBuilderIsland() {
           </div>
           <h1>Color Blind Builder</h1>
           <p>Pick a preset, preview HUD colors, then download a local Deadlock mod file.</p>
+          <nav className="similar-tools" aria-label="Similar tools">
+            <span>Similar tools</span>
+            {SIMILAR_TOOLS.map((tool) => (
+              <a key={tool.href} href={tool.href} target="_blank" rel="noreferrer">
+                {tool.label}
+              </a>
+            ))}
+          </nav>
         </div>
 
         <div className="hero-console" aria-label="Build status">
